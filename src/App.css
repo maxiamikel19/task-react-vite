@@ -44,7 +44,7 @@ input {
   padding-bottom: 20px;
   border-bottom: solid 1px #808080;
   max-height: 40vh;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 .btn {
   background: #f1f1f1;

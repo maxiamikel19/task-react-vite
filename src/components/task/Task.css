@@ -9,6 +9,18 @@
   font-size: 1em;
   color: #ff4500;
 }
+.task-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task-metadata {
+  display: flex;
+  gap: 5px;
+  font-size: 11px;
+  color: #ff4500;
+}
 .actions {
   gap: 8px;
   display: flex;
@@ -33,4 +45,18 @@
 
 .action-complete {
   color: #3cb371;
+}
+
+.task-pending {
+  color: #f1f1f1;
+}
+
+.task-complete {
+  color: #3cb371;
+}
+.no-task {
+  height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
