@@ -1,0 +1,36 @@
+.task {
+  margin: 20px 0px;
+  box-shadow: 0 0 5px rgba(110, 84, 84, 0.4);
+  padding: 8px 14px;
+  background: #363636;
+}
+.task-content-name {
+  font-weight: 600;
+  font-size: 1em;
+  color: #ff4500;
+}
+.actions {
+  gap: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+.action {
+  background: transparent;
+  font-size: 1.5em;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.action:hover {
+  color: #ff8c00;
+}
+.action-delete {
+  color: #dc143c;
+}
+
+.action-complete {
+  color: #3cb371;
+}

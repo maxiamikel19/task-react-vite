@@ -1,4 +1,6 @@
-import React from "react";
+import { FaCheck } from "react-icons/fa";
+import { AiFillDelete } from "react-icons/ai";
+import "./Task.css";
 
 function Task({ task }) {
   const { id, name, description, category, isCompleted } = task;
@@ -6,13 +8,17 @@ function Task({ task }) {
   return (
     <div className="task">
       <div className="task-content">
-        <p>{name}</p>
+        <p className="task-content-name">{name}</p>
         <p>{description}</p>
         <p>{category}</p>
       </div>
       <div className="actions">
-        <button>Finalize</button>
-        <button>Delete</button>
+        <button className="action-complete action">
+          <FaCheck />
+        </button>
+        <button className="action-delete action">
+          <AiFillDelete />
+        </button>
       </div>
     </div>
   );

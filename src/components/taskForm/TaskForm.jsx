@@ -1,13 +1,43 @@
-import React from "react";
+import { useState } from "react";
 import "./TaskForm.css";
+import { FaRegSave } from "react-icons/fa";
 
-function TaskForm() {
+function TaskForm({ addNewTask }) {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  // const newTask = {
+  //   name: name,
+  //   description: description,
+  //   category: category,
+  //   isCompleted: false,
+  // };
+
+  const handleResetForm = () => {
+    setName("");
+    setDescription("");
+    setCategory("");
+  };
+
+  const handleValidarForm = () => {
+    if (!name || !description || !category) return;
+  };
+
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    handleValidarForm();
+    //console.log(newTask);
+    addNewTask(name, description, category);
+    handleResetForm();
+  };
   return (
     <div className="task-form">
       <h2>Create new task</h2>
-      <form>
+      <form autoComplete="off" noValidate>
         <div className="form-input">
           <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             type="text"
             name="name"
             placeholder="Category name"
@@ -16,6 +46,8 @@ function TaskForm() {
         </div>
         <div className="form-input">
           <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             name="description"
             id="description"
             cols="30"
@@ -24,7 +56,12 @@ function TaskForm() {
           ></textarea>
         </div>
         <div className="form-input">
-          <select name="category" id="category">
+          <select
+            name="category"
+            id="category"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
             <option value="">Select a category</option>
             <option value="Personal">Personal</option>
             <option value="School">School</option>
@@ -33,7 +70,9 @@ function TaskForm() {
           </select>
         </div>
         <div className="form-input">
-          <button>Create</button>
+          <button className="btn" onClick={handleSubmitForm}>
+            <FaRegSave className="icon" /> Create
+          </button>
         </div>
       </form>
     </div>
