@@ -20,8 +20,7 @@ function Task({ task, removeTask, completeTask }) {
           </p>
         </div>
         <p>{description}</p>
-        <p>{category}</p>
-        <p>{isCompleted}</p>
+        <p>[ {category} ]</p>
       </div>
       <div className="actions">
         <button

@@ -1,0 +1,21 @@
+.search {
+  margin: 20x 0px;
+  border: none;
+  padding: 10px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+.search input {
+  width: 92%;
+  padding: 10px 12px;
+  outline: none;
+  border: none;
+}
+
+.search input:focus {
+  border: solid 2px #20b2aa;
+}
+
+.search button:hover {
+  color: #ff8c00;
+}

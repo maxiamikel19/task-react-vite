@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import Task from "./components/task/Task";
 import TaskForm from "./components/taskForm/TaskForm";
+import Search from "./components/search/Search";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -21,6 +22,7 @@ function App() {
     },
   ]);
 
+  const [search, setSearch] = useState("");
   const addNewTask = (name, description, category) => {
     const newTask = [
       ...tasks,
@@ -54,16 +56,21 @@ function App() {
       <h1>
         Tasks list<span className="task-number">({tasks.length})</span>
       </h1>
+      <Search search={search} setSearch={setSearch} />
       <div className="task-list">
         {tasks.length > 0 ? (
-          tasks.map((task) => (
-            <Task
-              key={task.id}
-              task={task}
-              removeTask={removeTask}
-              completeTask={completeTask}
-            />
-          ))
+          tasks
+            .filter((task) =>
+              task.name.toLowerCase().includes(search.toLowerCase())
+            )
+            .map((task) => (
+              <Task
+                key={task.id}
+                task={task}
+                removeTask={removeTask}
+                completeTask={completeTask}
+              />
+            ))
         ) : (
           <div className="no-task">
             <h1>No tasks to show</h1>
