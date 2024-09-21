@@ -1,27 +1,13 @@
 import { useState } from "react";
 import "./App.css";
+import taskList from "./data/tasks";
 import Task from "./components/task/Task";
 import TaskForm from "./components/taskForm/TaskForm";
 import Search from "./components/search/Search";
 import Filter from "./components/filter/Filter";
 
 function App() {
-  const [tasks, setTasks] = useState([
-    {
-      id: 1,
-      name: "Task 001",
-      description: "Iniciar a task",
-      category: "Personal",
-      isCompleted: false,
-    },
-    {
-      id: 2,
-      name: "Task 002",
-      description: "Iniciar a task 002",
-      category: "Work",
-      isCompleted: false,
-    },
-  ]);
+  const [tasks, setTasks] = useState(taskList);
 
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
