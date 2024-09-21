@@ -33,9 +33,10 @@ function TaskForm({ addNewTask }) {
   return (
     <div className="task-form">
       <h2>Create new task</h2>
-      <form autoComplete="off" noValidate>
+      <form autoComplete="off" onSubmit={handleSubmitForm}>
         <div className="form-input">
           <input
+            required
             value={name}
             onChange={(e) => setName(e.target.value)}
             type="text"
@@ -46,6 +47,7 @@ function TaskForm({ addNewTask }) {
         </div>
         <div className="form-input">
           <textarea
+            required
             value={description}
             onChange={(e) => setDescription(e.target.value)}
             name="description"
@@ -57,6 +59,7 @@ function TaskForm({ addNewTask }) {
         </div>
         <div className="form-input">
           <select
+            required
             name="category"
             id="category"
             value={category}
@@ -70,7 +73,7 @@ function TaskForm({ addNewTask }) {
           </select>
         </div>
         <div className="form-input">
-          <button className="btn" onClick={handleSubmitForm}>
+          <button className="btn" type="submit">
             <FaRegSave className="icon" /> Create
           </button>
         </div>
