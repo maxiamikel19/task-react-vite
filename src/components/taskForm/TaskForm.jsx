@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./TaskForm.css";
 import { FaRegSave } from "react-icons/fa";
 
+// eslint-disable-next-line react/prop-types
 function TaskForm({ addNewTask }) {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
