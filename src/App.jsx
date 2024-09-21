@@ -3,6 +3,7 @@ import "./App.css";
 import Task from "./components/task/Task";
 import TaskForm from "./components/taskForm/TaskForm";
 import Search from "./components/search/Search";
+import Filter from "./components/filter/Filter";
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -23,6 +24,8 @@ function App() {
   ]);
 
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("All");
+  const [sort, setSort] = useState("Asc");
   const addNewTask = (name, description, category) => {
     const newTask = [
       ...tasks,
@@ -57,11 +60,24 @@ function App() {
         Tasks list<span className="task-number">({tasks.length})</span>
       </h1>
       <Search search={search} setSearch={setSearch} />
+      <Filter filter={filter} setFilter={setFilter} setSort={setSort} />
       <div className="task-list">
         {tasks.length > 0 ? (
           tasks
             .filter((task) =>
+              filter === "All"
+                ? true
+                : filter === "Finish"
+                ? task.isCompleted
+                : !task.isCompleted
+            )
+            .filter((task) =>
               task.name.toLowerCase().includes(search.toLowerCase())
+            )
+            .sort((a, b) =>
+              sort === "Asc"
+                ? a.name.localeCompare(b.name)
+                : b.name.localeCompare(a.name)
             )
             .map((task) => (
               <Task

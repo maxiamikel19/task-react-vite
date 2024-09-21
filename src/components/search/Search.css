@@ -1,7 +1,8 @@
 .search {
-  margin: 20x 0px;
-  border: none;
-  padding: 10px 0px;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: solid 1px #808080;
+
   display: flex;
   justify-content: space-between;
 }
